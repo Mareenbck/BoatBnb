@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+.btn-flat {
+  color: rgb(158, 158, 158);
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: beige;  transition: background 0.3s ease;
+  margin: 15px 0px;
+}
+
+.btn-flat:hover {
+  background: beige;
+  color: rgb(80, 80, 80);
+}
+
+.banner h1,p {
+  color : beige;
+  
+}
+
+.banner {
+  height: 100vh;
+  display:flex;
+  align-items: center;
+}

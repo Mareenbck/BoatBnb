@@ -11,3 +11,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+h1, h2, h3, h4 {
+  font-family: 'Crimson Text', serif;
+}
+
+p, a {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
