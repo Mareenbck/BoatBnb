@@ -4,11 +4,18 @@
         <% @boats.each do |boat| %>
             <%= link_to boat_path(boat) do  %>
                 <div class="card-boat">
-            
-                    <h2> <%= boat.name  %></h2> 
-                    <p><%= boat.category %></p> 
-                    <p><%= "#{boat.price} € / day" %></p>
-                    <p><%= "Location: #{boat.localisation}" %></p>
+                    <div class="card-boat-img">
+                        <%= cl_image_tag("lzbprvjpojlsmcznhpyo", width: 300, height: 200, crop: :thumb) %>
+                    </div>
+                    <div class= "card-boat-info">
+                        <div class= "card-boat-main-info">
+                            <h2> <%= boat.name  %></h2> 
+                            <p><%= boat.category %></p> 
+                            <p><%= "Location: #{boat.localisation}" %></p>
+                        </div>
+                        <p><strong><%= "#{boat.price} € / day" %></strong></p>
+                    </div>
+                    
                 </div> 
             <% end %>
         <% end %>

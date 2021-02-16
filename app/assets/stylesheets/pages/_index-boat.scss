@@ -10,13 +10,26 @@
     border: 1px thin black;
     border-radius: 10px;
     align-self: center;
-    text-align: center;
+    text-align: left;
     color: black;
     background-color: white;
     padding: 10px;
+    box-shadow: 0 0 5px lightgray;
    
 }
 
 .card-boat p {
-    color: grey
+    color: grey;
+    line-height: 3px;
+    text-shadow: none;
+
 }
+
+.card-boat-info {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+}
+

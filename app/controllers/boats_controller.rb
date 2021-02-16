@@ -1,7 +1,7 @@
 class BoatsController < ApplicationController
 
   def index
-    @boats = Boat.policy_scope(Boat)
+    @boats = policy_scope(Boat)
   end
 
   def show
