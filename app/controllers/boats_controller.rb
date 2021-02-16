@@ -1,21 +1,24 @@
 class BoatsController < ApplicationController
 
   def index
-    @boats = Boat.all
+    @boats = Boat.policy_scope(Boat)
   end
 
   def show
     @boat = Boat.find(params[:id])
+    authorize @boat
   end
 
   def new
     @boat = Boat.new
+    authorize @boat
   end
 
   def create
     @boat = Boat.new(boat_params)
+    authorize @boat
     if @boat.save
-      redirect redirect_to boat_path(@boat)
+      redirect_to boat_path(@boat)
     else
       render :new
     end
@@ -23,15 +26,18 @@ class BoatsController < ApplicationController
 
   def edit
     @boat = Boat.find(params[:id])
+    authorize @boat
   end
 
   def update
     @boat = Boat.find(params[:id])
+    authorize @boat
     @boat.update(boat_params)
   end
 
   def destroy
     @boat = Boat.find(params[:id])
+    authorize @boat
     @boat.destroy
     redirect_to boats_path
   end
@@ -39,6 +45,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :price, :localisation, :capacity, :category)
+    params.require(:boat).permit(:name, :price)
   end
 end

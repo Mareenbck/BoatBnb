@@ -1,0 +1,13 @@
+
+<h3> <%= current_user.email %></h3>
+
+<% @boats.each do |boat| %>
+  <%= boat.name %>
+  <%= boat.price %>
+  <%= link_to 'edit', edit_boat_path(boat) %>
+  <%= link_to 'delete', dashboard_path,
+              method: :delete,
+              data: { confirm: "Are you sure?" }  %>
+<% end %>
+
+<%= link_to '+ Add my boat', new_boat_path  %>
