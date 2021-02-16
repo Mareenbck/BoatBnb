@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>All Boats</h1>
+    <div class="container-cards"> 
+        <% @boats.each do |boat| %>
+            <%= link_to boat_path(boat) do  %>
+                <div class="card-boat">
+            
+                    <h2> <%= boat.name  %></h2> 
+                    <p><%= boat.category %></p> 
+                    <p><%= "#{boat.price} € / day" %></p>
+                    <p><%= "Location: #{boat.localisation}" %></p>
+                </div> 
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+    
