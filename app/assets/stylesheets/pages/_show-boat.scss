@@ -1,0 +1,14 @@
+.boat-photos {
+  display: flex;
+  column-gap: 15px;
+  justify-content: center;
+}
+
+.boat-photos img {
+  box-shadow: 0 0 5px lightgray;
+}
+
+.boat-info p {
+  color: black;
+  text-shadow: none;
+}

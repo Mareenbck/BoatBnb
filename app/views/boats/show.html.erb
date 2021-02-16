@@ -1,6 +1,11 @@
 <div class="container">
+  <% @boat.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill %>
+  <% end %>
   <h1 class="title"> <%= @boat.name%></h1>
+  <div class= "boat-info">
+    <p><%= @boat.category %></p>
+    <p><%= "Location: #{@boat.localisation}" %></p>
+    <p><strong><%= "#{@boat.price} € / day" %></strong></p>
+  </div>
 </div>
-<% @boat.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
