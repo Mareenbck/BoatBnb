@@ -1,7 +1,7 @@
 class BoatsController < ApplicationController
 
   def index
-    @boats = Boat.policy_scope(Boat)
+    @boats = policy_scope(Boat)
   end
 
   def show
@@ -16,6 +16,7 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.new(boat_params)
+    @boat.user = current_user
     authorize @boat
     if @boat.save
       redirect_to boat_path(@boat)
@@ -27,6 +28,7 @@ class BoatsController < ApplicationController
   def edit
     @boat = Boat.find(params[:id])
     authorize @boat
+    redirect_to dashboard_path
   end
 
   def update
@@ -37,9 +39,10 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat = Boat.find(params[:id])
+    @boat.user = current_user
     authorize @boat
     @boat.destroy
-    redirect_to boats_path
+    redirect_to dashboard_path
   end
 
   private

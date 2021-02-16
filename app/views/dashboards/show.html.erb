@@ -5,7 +5,7 @@
   <%= boat.name %>
   <%= boat.price %>
   <%= link_to 'edit', edit_boat_path(boat) %>
-  <%= link_to 'delete', dashboard_path,
+  <%= link_to 'delete', boat_path(boat),
               method: :delete,
               data: { confirm: "Are you sure?" }  %>
 <% end %>
