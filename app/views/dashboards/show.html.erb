@@ -11,3 +11,16 @@
 <% end %>
 
 <%= link_to '+ Add my boat', new_boat_path  %>
+
+<h5>Demand of reservation</h5>
+
+
+<% @reservations.each do |reservation| %>
+  <%= reservation.begin_date %>
+  <%= reservation.end_date %>
+  <%= reservation.total_price %>
+  <%= link_to 'validate', reservation_path(reservation) %>
+  <%= link_to 'delete', reservation_path(reservation),
+              method: :delete,
+              data: { confirm: "Are you sure?" }  %>
+<% end %>
