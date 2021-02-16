@@ -1,6 +1,9 @@
 <%= simple_form_for(@boat) do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
+  <%= f.input :localisation %>
+  <%= f.input :category %>
+  <%= f.input :capacity %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>

@@ -3,5 +3,4 @@ class Boat < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :reviews, through: :reservations
   has_many_attached :photos
-  
 end
