@@ -7,7 +7,7 @@ Boat.destroy_all
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-array = [1, 2, 3]
+array = [0, 1, 2]
 10.times do
   user = User.create(email: Faker::Internet.email, password: Faker::Internet.password)
   nb = array.sample
