@@ -4,8 +4,10 @@
         <% @boats.each do |boat| %>
             <%= link_to boat_path(boat) do  %>
                 <div class="card-boat">
-                    <div class="card-boat-img">
-                        <%= cl_image_tag("lzbprvjpojlsmcznhpyo", width: 300, height: 200, crop: :thumb) %>
+                    <div class="card-boat-image">
+                       
+                        <%= cl_image_tag boat.photos.first.key, height: 200, width: 300, crop: :thumb %>
+                    
                     </div>
                     <div class= "card-boat-info">
                         <div class= "card-boat-main-info">
