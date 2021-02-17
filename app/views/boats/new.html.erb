@@ -9,10 +9,10 @@
       <div class = "line-4">
         <%= f.input :price, :placeholder => '10' %>
         <%= f.input :localisation, :placeholder => 'Paris' %>
-        <%= f.input :category, :collection => %w[Voilier Moteur], selected: 'Voilier' %>
+        <%= f.input :category, :collection => %w[Voilier Moteur], prompt:'Select your category' %>
         <%= f.input :capacity, :placeholder => '2' %>
       </div>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'btn-file' } %>
       <%= f.submit 'ADD BOAT', :class => 'btn-blue' %>
     <% end %>
     </div>

@@ -1,14 +1,59 @@
-.boat-photos {
-  display: flex;
-  column-gap: 15px;
-  justify-content: center;
+.boat-show {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px;
 }
 
-.boat-photos img {
-  box-shadow: 0 0 5px lightgray;
+.carousel-item {
+  height: 100%;
+}
+
+.boat-info {
+  padding: 2rem;
+  text-align: center;
+}
+
+.boat-title{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 0px;
+  align-items: center;
+  i {
+    font-size: 30px;
+    margin-right: 15px;
+    color : rgb(69, 114, 135);
+  }
+
+}
+
+.boat-subinfo {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  padding-top: 15px;
+  background-color: rgba(69, 114, 135, 0.1);
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  i {
+    font-size: 30px;
+    margin-right: 15px;
+    color : rgb(69, 114, 135);
+  }
+  .with-border {
+    border-right: solid 1px #F4F4F4;
+  }
+
+}
+
+.boat-photo img {
+  height: 100%;
+  width: 100%;
 }
 
 .boat-info p {
   color: black;
   text-shadow: none;
 }
+

@@ -31,4 +31,9 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+
+document.querySelector('.carousel').carousel({
+  wrap: true,
+  interval: 2000
+})
 });
