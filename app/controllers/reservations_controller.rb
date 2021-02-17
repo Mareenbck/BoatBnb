@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
     @reservation.boat = @boat
     @reservation.total_price = sum_price(@boat.price, @reservation.end_date, @reservation.begin_date)
     if @reservation.save!
-      redirect_to reservation_path(@reservation)
+      redirect_to dashboard_path
     else
       render :new
     end
