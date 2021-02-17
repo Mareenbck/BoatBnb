@@ -11,11 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/new-boat";
 
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 
 h1, h2, h3, h4 {
-  font-family: 'Crimson Text', serif;
+  font-family: 'Yeseva One', cursive;
 }
 
 p, a {
@@ -43,7 +45,7 @@ h1 {
 }
 
 .footer {
-  background: beige;
+  background: rgba(90, 95, 116,0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,4 +69,29 @@ h1 {
 }
 .footer .fa-heart {
   color: #D23333;
+}
+.btn-blue {
+  background-color:rgb(69, 114, 135);
+  color:beige;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: bold;
+  transition: opacity 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: rgba(69, 114, 135, 0.7);
+}
+
+.btn-white {
+  color: rgba(78, 129, 151, 0.8);
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: beige;  transition: background 0.3s ease;
+  font-weight: bold;
+}
+.btn-white:hover {
+  background: beige;
+  color: #4e8197;
+  font-weight: bold;
 }

@@ -1,9 +1,18 @@
-<%= simple_form_for(@boat) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :localisation %>
-  <%= f.input :category %>
-  <%= f.input :capacity %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class='form-container'>
+  <h1>Add a new boat to rent</h1>
+  <div class='form'>
+    <%= simple_form_for(@boat) do |f| %>
+      <div class = "line-3">
+        <%= f.input :name, :placeholder => 'Wagon Boat' %>
+      </div>
+      <div class = "line-4">
+        <%= f.input :price, :placeholder => '10' %>
+        <%= f.input :localisation, :placeholder => 'Paris' %>
+        <%= f.input :category, :collection => %w[Voilier Moteur], selected: 'Voilier' %>
+        <%= f.input :capacity, :placeholder => '2' %>
+      </div>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit 'ADD BOAT', :class => 'btn-blue' %>
+    <% end %>
+    </div>
+</div>
