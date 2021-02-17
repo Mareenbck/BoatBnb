@@ -10,7 +10,6 @@
                       <% else %>
                         <img height="200" width="300" src = <%= asset_path( 'boat.png' ) %>/>
                       <% end %>
-
                     </div>
                     <div class= "card-boat-info">
                         <div class= "card-boat-main-info">
@@ -24,6 +23,10 @@
             <% end %>
         <% end %>
     </div>
-</div>
 
+<div id="map"
+     style="width: 950px; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
 
