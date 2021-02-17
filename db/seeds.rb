@@ -12,7 +12,7 @@ array = [0, 1, 2]
   user = User.create(email: Faker::Internet.email, password: Faker::Internet.password)
   nb = array.sample
   nb.times do
-    Boat.create(name: Faker::Name.first_name, price: rand(50..200), localisation: Faker::Address.city, user_id: user.id, category: "Voilier", capacity: rand(2..10))
+    Boat.create(name: Faker::Name.first_name, price: rand(50..200), localisation: "Marseille", user_id: user.id, category: "Voilier", capacity: rand(2..10))
   end
 end
 
