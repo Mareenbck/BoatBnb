@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: [:show]
 
+  patch '/validate/:id', to: 'reservations#validate', as: :validate
+  patch '/deny/:id', to: 'reservations#deny', as: :deny
+
 end

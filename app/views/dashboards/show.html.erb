@@ -57,16 +57,14 @@
       <div class="card-boat">
         <div class= "card-boat-info">
           <div class= "card-boat-main-info">
-            <h2> <%= boat.name %> </h2>
             <% boat.reservations.each do |reservation| %>
+              <h2> <%= reservation.boat.name %> </h2>
               <p> <%= reservation.id %> </p>
               <p> <%= reservation.begin_date %> </p>
               <p> <%= reservation.end_date %> </p>
               <p> <%= reservation.total_price %> </p>
-              <%= link_to 'validate', reservation_path(reservation) %>
-              <%= link_to 'delete', reservation_path(reservation),
-                                                  method: :delete,
-                                                  data: { confirm: "Are you sure?" }  %>
+              <%= link_to 'validate', validate_path(reservation), method: :patch %>
+              <%= link_to 'deny', deny_path(reservation), method: :patch %>
             <% end %>
           </div>
         </div>
