@@ -35,13 +35,19 @@ class BoatsController < ApplicationController
   def edit
     @boat = Boat.find(params[:id])
     authorize @boat
-    redirect_to edit_boat_path(@boat)
+
   end
 
   def update
     @boat = Boat.find(params[:id])
     authorize @boat
-    @boat.update(boat_params)
+
+    if @boat.update(boat_params)
+      redirect_to boat_path(@boat)
+    else
+      render :edit
+    end
+
   end
 
   def destroy

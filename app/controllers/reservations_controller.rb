@@ -34,6 +34,18 @@ class ReservationsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def validate
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(statut: "validated")
+    redirect_to dashboard_path
+  end
+
+  def deny
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(statut: "denied")
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_boat
