@@ -28,7 +28,7 @@ class BoatsController < ApplicationController
   def edit
     @boat = Boat.find(params[:id])
     authorize @boat
-    redirect_to dashboard_path
+    redirect_to edit_boat_path(@boat)
   end
 
   def update

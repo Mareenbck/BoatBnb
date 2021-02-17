@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
   def show
     @boats = Boat.where(user: current_user)
     @reservations = Reservation.where(user: current_user)
+
     # authorize current_user
   end
 

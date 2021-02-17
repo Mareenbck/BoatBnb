@@ -1,26 +1,77 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-baseline">
+    <h3> <%= current_user.email %></h3>
+    <%= link_to '+ Add my boat', new_boat_path , :class => 'btn-blue' %>
+  </div>
+  <br>
+  <h3>My Boats</h3>
+    <div class="container-cards">
+      <% @boats.each do |boat| %>
+        <div class="card-boat">
+          <div class="card-boat-image">
+            <% if boat.photos.first %>
+              <%= cl_image_tag boat.photos.first.key, height: 200, width: 300, crop: :thumb %>
+            <% else %>
+              <img height="200" width="300" src = <%= asset_path( 'boat.png' ) %>/>
+            <% end %>
+          </div>
+          <div class= "card-boat-info">
+            <div class= "card-boat-main-info">
+              </h2> <%= boat.name  %></h2>
+              <p><%= boat.category %></p>
+              <p><%= "Location: #{boat.localisation}" %></p>
+            </div>
+            <p><strong><%= "#{boat.price} € / day" %></strong></p>
+          </div>
+          <%= link_to 'edit', edit_boat_path(boat) %>
+          <%= link_to 'delete', boat_path(boat),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" }  %>
+        </div>
+      <% end %>
+    </div>
 
-<h3> <%= current_user.email %></h3>
-
-<% @boats.each do |boat| %>
-  <%= boat.name %>
-  <%= boat.price %>
-  <%= link_to 'edit', edit_boat_path(boat) %>
-  <%= link_to 'delete', boat_path(boat),
-              method: :delete,
-              data: { confirm: "Are you sure?" }  %>
-<% end %>
-
-<%= link_to '+ Add my boat', new_boat_path  %>
-
-<h5>Demand of reservation</h5>
 
 
-<% @reservations.each do |reservation| %>
-  <%= reservation.begin_date %>
-  <%= reservation.end_date %>
-  <%= reservation.total_price %>
-  <%= link_to 'validate', reservation_path(reservation) %>
-  <%= link_to 'delete', reservation_path(reservation),
-              method: :delete,
-              data: { confirm: "Are you sure?" }  %>
-<% end %>
+<h3>My reservations</h3>
+  <div class="container-cards">
+    <% @reservations.each do |reservation| %>
+      <div class="card-boat">
+        <div class= "card-boat-info">
+          <div class= "card-boat-main-info">
+            <h2> <%= reservation.boat.name %> </h2>
+            <p> <%= reservation.begin_date %> </p>
+            <p><%= reservation.end_date %> </p>
+            <p> <%= "#{reservation.total_price} € "  %> </p>
+            <%= reservation.statut %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+   </div>
+
+
+<h3>Demand of reservation</h3>
+  <div class="container-cards">
+    <% @boats.each do |boat| %>
+      <div class="card-boat">
+        <div class= "card-boat-info">
+          <div class= "card-boat-main-info">
+            <h2> <%= boat.name %> </h2>
+            <% boat.reservations.each do |reservation| %>
+              <p> <%= reservation.id %> </p>
+              <p> <%= reservation.begin_date %> </p>
+              <p> <%= reservation.end_date %> </p>
+              <p> <%= reservation.total_price %> </p>
+              <%= link_to 'validate', reservation_path(reservation) %>
+              <%= link_to 'delete', reservation_path(reservation),
+                                                  method: :delete,
+                                                  data: { confirm: "Are you sure?" }  %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

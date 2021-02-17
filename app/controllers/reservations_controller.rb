@@ -45,6 +45,6 @@ class ReservationsController < ApplicationController
   end
 
   def sum_price(price_per_day, end_d, begin_d)
-    price_per_day * (end_d.mjd - begin_d.mjd)
+    price_per_day * (end_d.mjd - begin_d.mjd + 1)
   end
 end
