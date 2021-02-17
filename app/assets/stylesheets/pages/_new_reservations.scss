@@ -1,18 +1,13 @@
-.container {
-  justify-content: center;
-}
-
 
 .reservation-box {
-  width: 500px;
+  width: 100%;
   background-color: white;
-  border-radius: 25px;
-  box-shadow: 0 0 15px lightgray;
+  border-radius: 50px;
+  // box-shadow: 0 0 15px rgb(143, 143, 143);
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 15px;
   padding-right: 15px;
-  margin: 100px;
 }
 
 .reservation-box h1 {

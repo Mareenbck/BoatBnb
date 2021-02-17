@@ -1,6 +1,6 @@
-<div class="container">
+
   <div class="reservation-box">
-    <h2><%= @boat.name %> booking</h2>
+    <h2><%#= @boat.name %>Book it! </h2>
     <div class="reservation-form">
       <%= simple_form_for [@boat, @reservation] do |f| %>
         <%= f.input :begin_date %>
@@ -11,8 +11,8 @@
           <div class="total-price"></div>
         </div>
         <br>
-        <%= f.submit "Book the #{@boat.name}", class: "btn btn-primary rounded-3"%>
+        <%= f.submit "BOOK THE #{@boat.name.upcase}", class: "btn-blue"%>
       <% end %>
     </div>
   </div>
-</div>
+
