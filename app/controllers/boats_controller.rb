@@ -2,6 +2,12 @@ class BoatsController < ApplicationController
 
   def index
     @boats = policy_scope(Boat)
+    @markers = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def show
@@ -29,7 +35,7 @@ class BoatsController < ApplicationController
   def edit
     @boat = Boat.find(params[:id])
     authorize @boat
-    redirect_to dashboard_path
+    redirect_to edit_boat_path(@boat)
   end
 
   def update
