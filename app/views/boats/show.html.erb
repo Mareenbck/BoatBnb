@@ -1,31 +1,22 @@
 <div class="boat-show">
   <div class="boat-photo">
-    <%# <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"  data-keyboard='true' data-wrap='true' >
-      <div class="carousel-inner"> %>
-          <%# <% @boat.photos.each do |photo| %>
-            <%# <div class='carousel-item <%= 'active' if @boat.photos.first %>
-            <%# <div class="test"> %>
-          <% if @boat.photos.first %>
-            <%= cl_image_tag @boat.photos.first.key, class: 'test' %>
-          <% else %>
-            <img src="<%= asset_path( 'boat.png' ) %>"/>
-          <% end %>
-          <%# </div> %>
-          <%# </div> %>
-          <%# <% end %>
-      <%# </div> %>
-      <%# </div> %>
+    <% if @boat.photos.first %>
+      <%= cl_image_tag @boat.photos.first.key, class: 'test' %>
+    <% else %>
+      <img src="<%= asset_path( 'boat.png' ) %>"/>
+    <% end %>
   </div>
   <div class= "boat-info">
     <h1><%= @boat.name%></h1>
-    <div class= "boat-ratings d-flex justify-content-between">
+    <div class= "boat-ratings d-flex justify-content-left">
+      <%= cl_image_tag current_user.avatar.key, class: "show-avatar"%>
       <p><%= @boat.user.first_name%>'s boat</p>
       <p>
         <% @average_rating.times do %>
           <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
         <% end %>
         <% (5 - @average_rating).times do %>
-          <i class="fas fa-star" style= 'color : grey'></i>
+          <i class="fas fa-star" style= 'color : darkgrey'></i>
         <% end %>
       </p>
     </div>
@@ -41,9 +32,9 @@
       <%= render "reservations/new_reservation" %>
     </div>
   </div>
-  <!-- <div id="map"
+  <div id="map"
      style="width: 950px; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div> -->
+  </div>
 </div>
