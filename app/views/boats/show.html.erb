@@ -17,10 +17,17 @@
       <%# </div> %>
   </div>
   <div class= "boat-info">
-    <div class= "boat-title">
-      <h1><%= @boat.name%></h1>
-      <p style= 'color : rgb(69, 114, 135)'><i class="fas fa-star"></i><strong>4/5</strong></p>
-      <p><%= @boat.user%>'s boat</p>
+    <h1><%= @boat.name%></h1>
+    <div class= "boat-ratings d-flex justify-content-between">
+      <p><%= @boat.user.first_name%>'s boat</p>
+      <p>
+        <% @average_rating.times do %>
+          <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
+        <% end %>
+        <% (5 - @average_rating).times do %>
+          <i class="fas fa-star" style= 'color : grey'></i>
+        <% end %>
+      </p>
     </div>
     <div class="boat-subinfo">
       <p class="with-border"><i class="fas fa-ship"></i><%= @boat.category %></p>
@@ -28,7 +35,7 @@
       <p><i class="fas fa-dollar-sign"></i><%= "#{@boat.price} € / day" %></p>
     </div>
     <div class="boat-description">
-      <p>Boat's description</p>
+      <p><%= @boat.description%></p>
     </div>
     <div class="boat-form">
       <%= render "reservations/new_reservation" %>

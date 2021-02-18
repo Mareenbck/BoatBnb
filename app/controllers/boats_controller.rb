@@ -1,5 +1,4 @@
 class BoatsController < ApplicationController
-
   def index
     @boats = policy_scope(Boat)
     @markers = @boats.geocoded.map do |boat|
@@ -17,6 +16,7 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
     authorize @boat
     @reservation = Reservation.new
+    @average_rating = average_rating
   end
 
   def new
@@ -38,7 +38,6 @@ class BoatsController < ApplicationController
   def edit
     @boat = Boat.find(params[:id])
     authorize @boat
-
   end
 
   def update
@@ -50,7 +49,6 @@ class BoatsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy
@@ -64,6 +62,11 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :price, :category, :localisation, :capacity, photos: [])
+    params.require(:boat).permit(:name, :price, :category, :localisation, :capacity, :description, photos: [])
+  end
+
+  def average_rating
+    ratings = @boat.reviews.pluck(:rating)
+    ratings.length.zero? ? 0 : (ratings.sum / ratings.length).round
   end
 end
