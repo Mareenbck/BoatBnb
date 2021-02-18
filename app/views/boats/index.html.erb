@@ -14,8 +14,13 @@
                     <div class= "card-boat-info">
                       <div class= "card-boat-main-info">
                         <h2> <%= boat.name  %></h2>
-                        <p><%= boat.category %></p>
-                        <p><%= "Location: #{boat.localisation}" %></p>
+                        <% if boat.category == "Voilier" %>
+                          <p><i class="fas fa-anchor"></i> <%= boat.category %></p>
+                        <% else %>
+                          <p><i class="fas fa-ship"> </i> <%= boat.category %></p>
+                        <% end %>
+                          <p><i class="fas fa-map-marker-alt"></i> <%= boat.localisation %></p>
+                          <p><i class="fas fa-user-alt"></i> <%= boat.capacity %></p>
                         </div>
                         <p><strong><%= "#{boat.price} € / day" %></strong></p>
 
