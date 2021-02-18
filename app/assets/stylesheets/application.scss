@@ -19,6 +19,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 
+body {
+  position: relative;
+  padding-bottom: 80px;
+}
+
 h1, h2, h3, h4 {
   font-family: 'Yeseva One', cursive;
 }
@@ -48,13 +53,16 @@ h1 {
 }
 
 .footer {
-  background: rgba(90, 95, 116,0.1);
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .footer-links {
   display: flex;
@@ -75,7 +83,7 @@ h1 {
 }
 .btn-blue {
   background-color:rgb(69, 114, 135);
-  color:beige;
+  color:white;
   padding: 8px 24px;
   border-radius: 50px;
   font-size: bold;
@@ -90,11 +98,11 @@ h1 {
   color: rgba(78, 129, 151, 0.8);
   padding: 8px 24px;
   border-radius: 50px;
-  background: beige;  transition: background 0.3s ease;
+  background: white;  transition: background 0.3s ease;
   font-weight: bold;
 }
 .btn-white:hover {
-  background: beige;
+  background: white;
   color: #4e8197;
   font-weight: bold;
 }
