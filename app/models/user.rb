@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :boats
   has_many :reservations
-  has_many :reviews
+
+  has_many :reviews, dependent: :destroy
+
   has_one_attached :avatar
+
 end

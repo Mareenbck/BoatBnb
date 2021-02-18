@@ -1,0 +1,10 @@
+
+  <div class="review">
+    <h2>Laissez une évaluation</h2>
+    <%= form_for reservation_reviews_path(reservation), method: :post do |f| %>
+      <%= text_field_tag :content %>
+      <%= number_field_tag :rating  %>
+      <%= f.submit class: "btn btn-primary", value: "Valider" %>
+    <% end %>
+  </div>
+
