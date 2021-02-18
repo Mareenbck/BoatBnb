@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-    def new
+  skip_after_action :verify_authorized
+  def new
     @reservation = Reservation.find(params[:reservation_id])
     @review = Review.new
   end
@@ -24,10 +25,6 @@ class ReviewsController < ApplicationController
 
 
   private
-
-  def display_review_form(reservation)
-    reservation.end_date < Date.today
-  end
 
   def review_params
     params.require(:review).permit(:rating, :content)

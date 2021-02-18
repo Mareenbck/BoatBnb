@@ -1,0 +1,14 @@
+<div class="reviews">
+  <% @reviews.each do |review| %>
+    <p>
+      <%= review.user.first_name %>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+    </p>
+    <p><%= review.content %></p>
+  <% end %>
+</div>

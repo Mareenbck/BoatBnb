@@ -1,23 +1,16 @@
 class BoatsController < ApplicationController
   def index
-    
-
-    if params[:category] && params[:category] != "Category" 
+    if params[:category] && params[:category] != "Category"
       @boats = policy_scope(Boat.where(category: params[:category]))
-      
     else
       @boats = policy_scope(Boat)
     end
 
     if params[:capacity] && params[:capacity] != "Capacity"
       @boats = policy_scope(@boats.where(capacity: params[:capacity]))
-    else 
+    else
       @boats = policy_scope(@boats)
     end
-
-    
-    
-
 
     @markers = @boats.geocoded.map do |boat|
       {
@@ -34,7 +27,11 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
     authorize @boat
     @reservation = Reservation.new
+
+    @reviews = @boat.reviews
+
     @average_rating = average_rating
+
   end
 
   def new
@@ -46,6 +43,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     authorize @boat
+
     if @boat.save
       redirect_to boat_path(@boat)
     else
