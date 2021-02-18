@@ -11,7 +11,7 @@
 
 .boat-info {
   padding: 3rem;
-  text-align: center;
+  text-align: left;
 }
 
 .boat-title{
@@ -24,7 +24,6 @@
     margin-right: 15px;
     color : rgb(69, 114, 135);
   }
-
 }
 
 .boat-subinfo {
@@ -34,6 +33,7 @@
   padding-top: 15px;
   background-color: white;
   border-radius: 50px;
+  box-shadow: 0 0 10px lightgray;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   i {
@@ -44,9 +44,7 @@
   .with-border {
     border-right: solid 1px rgb(69, 114, 135);;
   }
-
 }
-
 
 .boat-info p {
   color: black;
@@ -63,3 +61,12 @@
   box-shadow: none;
   border: none;
 }
+
+.boat-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    p {
+      color: rgb(70, 114, 136);
+    }
+  }

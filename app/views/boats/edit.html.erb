@@ -1,6 +1,7 @@
 <%= simple_form_for (@boat) do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
+  <%= f.input :description, :placeholder => 'Nice boat, perfect for a family!' %>
   <%= f.input :localisation %>
   <%= f.input :category %>
   <%= f.input :capacity %>
