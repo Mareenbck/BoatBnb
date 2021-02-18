@@ -3,4 +3,6 @@ class Reservation < ApplicationRecord
   belongs_to :boat
   has_many :reviews, dependent: :destroy
 
+
+
 end

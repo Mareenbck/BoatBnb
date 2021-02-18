@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -45,6 +46,8 @@ class ReservationsController < ApplicationController
     @reservation.update(statut: "denied")
     redirect_to dashboard_path
   end
+
+
 
   private
 
