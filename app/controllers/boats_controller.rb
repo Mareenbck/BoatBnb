@@ -1,7 +1,25 @@
 class BoatsController < ApplicationController
 
   def index
-    @boats = policy_scope(Boat)
+    
+
+    if params[:category] && params[:category] != "Category" 
+      @boats = policy_scope(Boat.where(category: params[:category]))
+      
+    else
+      @boats = policy_scope(Boat)
+    end
+
+    if params[:capacity] && params[:capacity] != "Capacity"
+      @boats = policy_scope(@boats.where(capacity: params[:capacity]))
+    else 
+      @boats = policy_scope(@boats)
+    end
+
+    
+    
+
+
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
