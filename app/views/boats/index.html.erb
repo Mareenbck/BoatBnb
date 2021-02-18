@@ -1,6 +1,22 @@
+
+<div class="container-main">
+<h2 class="index-title">Find your boat</h2> 
+</div>
+
+
 <div class="container-main" style="display: flex;">
+
   <div class="">
     <h1 class="index-title">All Boats</h1>
+
+  
+  <div class="">    
+    <%= form_tag boats_path, method: :get do %>
+    <%= select_tag :category, options_for_select(%w[Category Voilier Moteur]) %>
+    <%= select_tag :capacity, options_for_select(%w[Capacity 1 2 3 4 5 6 7 8 9 10 11 12]) %>
+    <%= submit_tag :Search, class: "btn-blue" %>
+    <% end %> <br>
+
       <div class="container-cards">
           <% @boats.each do |boat| %>
               <%= link_to boat_path(boat) do  %>
@@ -14,7 +30,7 @@
                       </div>
                       <div class= "card-boat-info ">
                         <div class= "card-boat-main-info">
-                          <h3> <%= boat.name  %></h3>
+                          <h3> <strong><%= boat.name  %></strong></h3>
                           <% if boat.category == "Voilier" %>
                             <p><i class="fas fa-anchor"></i> <%= boat.category %></p>
                           <% else %>
@@ -38,6 +54,4 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
 </div>
-
-
 
