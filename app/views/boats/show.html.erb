@@ -5,7 +5,11 @@
           <%# <% @boat.photos.each do |photo| %>
             <%# <div class='carousel-item <%= 'active' if @boat.photos.first %>
             <%# <div class="test"> %>
-          <%= cl_image_tag @boat.photos.first.key, class: 'test' %>
+          <% if @boat.photos.first %>
+            <%= cl_image_tag @boat.photos.first.key, class: 'test' %>
+          <% else %>
+            <img src="<%= asset_path( 'boat.png' ) %>"/>
+          <% end %>
           <%# </div> %>
           <%# </div> %>
           <%# <% end %>
