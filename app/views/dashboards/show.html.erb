@@ -54,21 +54,20 @@
 <h3>Demand of reservation</h3>
   <div class="container-cards">
     <% @boats.each do |boat| %>
-      <div class="card-boat">
-        <div class= "card-boat-info">
-          <div class= "card-boat-main-info">
-            <% boat.reservations.each do |reservation| %>
+      <% boat.reservations.each do |reservation| %>
+        <div class="card-boat">
+          <div class= "card-boat-info">
+            <div class= "card-boat-main-info">
               <h2> <%= reservation.boat.name %> </h2>
-              <p> <%= reservation.id %> </p>
               <p> <%= reservation.begin_date %> </p>
               <p> <%= reservation.end_date %> </p>
               <p> <%= reservation.total_price %> </p>
               <%= link_to 'validate', validate_path(reservation), method: :patch %>
               <%= link_to 'deny', deny_path(reservation), method: :patch %>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
