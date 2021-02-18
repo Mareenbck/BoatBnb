@@ -5,13 +5,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     @reservation = Reservation.find(params[:reservation_id])
+    @review = Review.new(review_params)
+    @review.user = current_user
     @review.reservation = @reservation
     if @review.save
-      redirect_to boat_path(@boat)
+      redirect_to dashboard_path
     else
-      render :new
+      render "reviews/new_review"
     end
   end
 
@@ -21,7 +22,12 @@ class ReviewsController < ApplicationController
     redirect_to boat_path(@boat)
   end
 
+
   private
+
+  def display_review_form(reservation)
+    reservation.end_date < Date.today
+  end
 
   def review_params
     params.require(:review).permit(:rating, :content)

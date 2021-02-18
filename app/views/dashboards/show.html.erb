@@ -12,11 +12,15 @@
       <% @reservations.each do |reservation| %>
         <div class="reservation-info border-bottom">
           <h4> <%= reservation.boat.name %> </h4>
+          <%= reservation.id %>
           <%= reservation.begin_date %>
           <%= reservation.end_date %>
           <%= "#{reservation.total_price} € "  %>
           <%= reservation.statut %>
         </div>
+        <% if reservation.end_date < Date.today %>
+        <%= render "reviews/new_review", reservation: reservation %>
+        <% end %>
        <% end %>
   </div>
 
@@ -65,6 +69,8 @@
   </div>
   <% end %>
   </div>
+
+
 
   </div>
 
