@@ -9,7 +9,11 @@
   <div class= "boat-info">
     <h1><%= @boat.name%></h1>
     <div class= "boat-ratings d-flex justify-content-left">
+    <% if current_user.avatar.attached? %>
       <%= cl_image_tag current_user.avatar.key, class: "show-avatar"%>
+      <% else %>
+      <%= image_tag "boat.png", class: "show-avatar"%>
+      <% end %>
       <p><%= @boat.user.first_name%>'s boat</p>
       <p>
         <% @average_rating.times do %>
