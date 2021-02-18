@@ -1,5 +1,5 @@
 <div class="container-main" style="display: flex;">
-  <div class="">    
+  <div class="">
     <h1 class="index-title">All Boats</h1>
       <div class="container-cards">
           <% @boats.each do |boat| %>
@@ -36,7 +36,7 @@
       style="width: 800px; height: 830px; position: sticky; top: 0 !important; right: auto !important; left: auto !important;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>  
+    </div>
 </div>
 
 
