@@ -1,0 +1,7 @@
+<div><%=  cl_image_tag boat.photos.first.key, crop: :thumb, class: "info-window-img"  %> <br>
+</div>
+<div class="marker-info">
+<strong><%= boat.name  %></strong> <br>
+<%= " #{boat.price} € / day" %> <br>
+<%= link_to "View this boat", boat_path(boat)  %>
+</div>
