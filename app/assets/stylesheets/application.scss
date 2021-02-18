@@ -10,6 +10,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
@@ -37,7 +38,21 @@ h1 {
   margin-bottom: 20px;
 }
 
-.nav-margin-top {
+
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 50px;
+  .nav-margin-top {
   margin-top: 100px;
 }
 
