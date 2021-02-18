@@ -3,11 +3,11 @@
     <h2><%#= @boat.name %>Book it! </h2>
     <div class="reservation-form">
       <%= simple_form_for [@boat, @reservation] do |f| %>
-        <%= f.input :begin_date %>
-        <%= f.input :end_date %>
+        <%= f.date_field :begin_date, value: Date.today, id: "begin-date"%>
+        <%= f.date_field :end_date, value: Date.today + 1.day, id: "end-date"%>
          <div class="reservation-info">
           <div class="nb-of-days"></div>
-          <div class="price-per-days"><strong>Price : <%= @boat.price %> € / day</strong></div>
+          <div class="price-per-days" data-price="<%= @boat.price %>"><strong>Price : <%= @boat.price %> € </strong></div>
           <div class="total-price"></div>
         </div>
         <br>

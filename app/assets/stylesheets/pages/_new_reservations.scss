@@ -2,14 +2,51 @@
 .reservation-box {
   width: 100%;
   background-color: white;
-  border-radius: 50px;
-  // box-shadow: 0 0 15px rgb(143, 143, 143);
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px lightgray;
+  h2 {
+    padding-bottom: 15px;
+    margin: 0;
+  }
 }
 
 .reservation-box h1 {
   text-align: center;
+}
+
+#begin-date {
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  padding: 5px;
+  color: lightgray;
+}
+
+#begin-date :hover {
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  padding: 5px;
+  color: black;
+}
+
+#end-date {
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  padding: 5px;
+  color: lightgray;
+}
+
+.boat-form {
+  text-align: center;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.reservation-info {
+  text-align: center;
+  padding-top: 20px;
+  .btn-blue {
+    margin-top: 0px;
+  }
 }
