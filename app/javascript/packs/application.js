@@ -37,7 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initStarRating();
   initMapbox();
-  computeDate();
   initFlatpickr();
 });
+  computeDate();
 
