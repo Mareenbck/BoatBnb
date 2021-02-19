@@ -39,6 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initFlatpickr();
 });
-  computeDate();
-
-  computeDate();
+ 
+computeDate();
