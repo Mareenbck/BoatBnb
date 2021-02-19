@@ -18,7 +18,6 @@ class BoatsController < ApplicationController
         lng: boat.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { boat: boat }),
         image_url: helpers.asset_url('http://pngimg.com/uploads/anchor/anchor_PNG11.png')
-
       }
     end
   end
@@ -31,7 +30,6 @@ class BoatsController < ApplicationController
     @reviews = @boat.reviews
 
     @average_rating = average_rating
-
   end
 
   def new
