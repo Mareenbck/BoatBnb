@@ -3,11 +3,11 @@
 <div class="container-main">
  <h1 class="index-title">All Boats</h1>
 
-  <div class="">    
-    <%= form_tag boats_path, method: :get do %>
-    <%= select_tag :category, options_for_select(%w[Category Voilier Moteur]) %>
-    <%= select_tag :capacity, options_for_select(%w[Capacity 1 2 3 4 5 6 7 8 9 10 11 12]) %>
-    <%= submit_tag :Search, class: "btn-blue" %>
+  <div class="index-searchbar">    
+    <%= form_tag boats_path, method: :get, class: 'boat-subinfo-index' do %>
+    <%= select_tag :category, options_for_select(%w[Category Voilier Moteur]), class: "btn-blue-index" %>
+    <%= select_tag :capacity, options_for_select(%w[Capacity 1 2 3 4 5 6 7 8 9 10 11 12]), class: "btn-blue-index" %>
+    <%= submit_tag :Search, class: "btn-blue-index", id: 'search-index' %> 
     <% end %> <br>
     </div>
 </div>
@@ -35,8 +35,12 @@
                             <p><i class="fas fa-map-marker-alt"></i> <%= boat.localisation %></p>
                             <p><i class="fas fa-user-alt"></i> <%= boat.capacity %></p>
                           </div>
+                          <% if boat.user.avatar.attached? %>
+                              <%= cl_image_tag boat.user.avatar.key, class: "avatar-index"%>
+                            <% else %>
+                              <%= image_tag "boat.png", class: "avatar-index"%>
+                            <% end %>
                           <p><strong><%= "#{boat.price} € / day" %></strong></p>
-
                         </div>
                     </div>
                 <% end %>
