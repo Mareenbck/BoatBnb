@@ -1,3 +1,45 @@
+
+
+.container-resa-profil {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 155px;
+  align-items: flex-start;
+}
+
+// COLONNE DE DROITE SUR LES BATEAUX
+
+.container-resa {
+  padding-top: 20px;
+}
+.card-boat {
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: 1px 0 10px 0px rgba(211, 211, 211, 0.253);
+  // box-shadow: 0 0 0 5px lightgray;
+}
+
+.reservations {
+  height: 100%;
+  padding: 15px 65px 15px 30px;
+}
+
+// COLONNE DE GAUCHE SUR LE USER
+.container-profil {
+  background-color: white;
+  border-radius: 10px;
+  margin: 0px 50px 50px 0px;
+  text-align: center;
+  padding: 20px 55px;
+  position:sticky;
+  top: 0;
+  min-height: 300px;
+  // width: 60%;
+  // overflow: hidden;
+  // height: initial;
+}
+
+
+
 .fa-star {
   color:  #FFD700;
   cursor: pointer;
@@ -12,6 +54,7 @@
   border-radius: 50px;
 }
 
+
 .info {
   width: 100%;
   display: flex;
@@ -20,14 +63,6 @@
   border-radius: 8px;
 }
 
-.container-profil {
-  margin-bottom: 50px;
-  background-color: white;
-  border-radius: 8px;
-  margin: 0px 50px 50px 0px;
-  text-align: center;
-  padding: 0px 55px;
-}
 
 .reservation-info {
   margin-bottom: 15px;
@@ -36,17 +71,11 @@
 
 }
 
-.reservations {
-  height: 100%;
-  padding: 15px 65px 15px 30px;
-}
 
-.container-resa-profil {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 155px;
-}
+
+
 
 .container-resa {
   width: 100%;
 }
+
