@@ -3,15 +3,15 @@
 <div class="container-main">
  <h1 class="index-title">All Boats</h1>
 
-  <div class="index-searchbar">    
+  <div class="index-searchbar">
     <%= form_tag boats_path, method: :get, class: 'boat-subinfo-index' do %>
     <%= select_tag :category, options_for_select(%w[Category Voilier Moteur]), class: "btn-blue-index" %>
     <%= select_tag :capacity, options_for_select(%w[Capacity 1 2 3 4 5 6 7 8 9 10 11 12]), class: "btn-blue-index" %>
-    <%= submit_tag :Search, class: "btn-blue-index", id: 'search-index' %> 
+    <%= submit_tag :Search, class: "btn-blue-index", id: 'search-index' %>
     <% end %> <br>
     </div>
 </div>
-   
+
 <div class="container-main" style="display: flex;">
       <div class="container-cards">
           <% @boats.each do |boat| %>
@@ -53,5 +53,5 @@
       </div>
       </div>
 
-      
-  
+
+
