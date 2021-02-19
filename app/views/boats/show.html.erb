@@ -41,8 +41,15 @@
         Be the first to leave a review for <%= @boat.name%>
         <% else %>
           <% @boat.reviews.each do |review| %>
+          <%= review.user.first_name %>
+          <% review.rating.times do %>
+             <i class="fas fa-star"></i>
+          <% end %>
+            <% (5 - review.rating).times do %>
+             <i class="far fa-star"></i>
+          <% end %>
+          <br>
           <%= review.content %>
-          <%= review.rating %>
         <% end %>
       <% end %>
     </div>
