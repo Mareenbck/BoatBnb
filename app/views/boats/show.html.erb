@@ -35,6 +35,17 @@
     <div class="boat-form">
       <%= render "reservations/new_reservation" %>
     </div>
+
+    <div class="reviews">
+      <% if @boat.reviews.blank? %>
+        Be the first to leave a review for <%= @boat.name%>
+        <% else %>
+          <% @boat.reviews.each do |review| %>
+          <%= review.content %>
+          <%= review.rating %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div id="map"
      style="width: 950px; height: 600px;"
