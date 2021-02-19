@@ -22,6 +22,10 @@
     // flex-shrink: 1;
     height: calc(60vh - 76px);
   }
+  #map {
+   margin: 30px 30px 0px 0px;
+   border-radius: 0px;
+  }
 }
 
 .boat-info {
@@ -52,6 +56,9 @@
     font-weight: bold;
     margin-bottom: 0;
   }
+  #nb-reviews {
+    font-weight: initial;
+  }
 }
 
 .show-avatar {
@@ -80,7 +87,10 @@
     color : rgb(69, 114, 135);
   }
   .with-border {
-    border-right: solid 1px rgb(69, 114, 135);;
+    border-right: solid 1px rgb(69, 114, 135);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   p {
     margin-bottom: 0;

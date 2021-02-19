@@ -24,12 +24,22 @@ class BoatsController < ApplicationController
 
   def show
     @boat = Boat.find(params[:id])
+    @boats = Boat.where(id: @boat.id)
     authorize @boat
     @reservation = Reservation.new
 
     @reviews = @boat.reviews
 
     @average_rating = average_rating
+
+    @marker = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { boat: boat }),
+        image_url: helpers.asset_url('http://pngimg.com/uploads/anchor/anchor_PNG11.png')
+      }
+    end
   end
 
   def new

@@ -6,8 +6,8 @@
       <img src="<%= asset_path( 'boat.png' ) %>"/>
     <% end %>
     <div id="map"
-     style="width: 100%; height: 40vh;"
-     data-markers="<%= @markers.to_json %>"
+     style="width: 100%; height: 50vh;"
+     data-markers="<%= @marker.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
@@ -28,12 +28,13 @@
           <i class="fas fa-star" style= 'color : darkgrey'></i>
         <% end %>
       </p>
+      <p id="nb-reviews">(<%= @boat.reviews.length%>) reviews</p>
     </div>
     <div class="boat-subinfo">
       <p class="with-border"><i class="fas fa-ship"></i><%= @boat.category %></p>
       <p class="with-border"><i class="fas fa-map-marker-alt"></i><%= @boat.localisation %></p>
       <p class="with-border"><i class="fas fa-user-alt"></i><%= @boat.capacity %></p>
-      <p><i class="fas fa-dollar-sign"></i><%= "#{@boat.price} € / day" %></p>
+      <p class="d-flex align-items-center justify-content-center"><i class="fas fa-dollar-sign"></i><%= "#{@boat.price} € / day" %></p>
     </div>
     <div class="boat-description">
       <p><%= @boat.description%></p>
