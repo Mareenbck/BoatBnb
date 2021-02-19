@@ -7,8 +7,12 @@
   <div class="container-resa-profil">
 
   <div class="container-profil">
-    <h2>Hello</h2>
-    <h3> <%= current_user.email %></h3>
+
+    <h3> <%= current_user.first_name %></h3>
+    <h5><%= current_user.email %></h5>
+    <h5><%= current_user.phone %></h5>
+<br>
+    <h4>Mes resevations</h4>
       <% @reservations.each do |reservation| %>
         <div class="reservation-info border-bottom">
           <h4> <%= reservation.boat.name %> </h4>
@@ -17,8 +21,9 @@
           <%= reservation.end_date %>
           <%= "#{reservation.total_price} € "  %>
           <%= reservation.statut %>
+          <%= reservation.boat.user.phone %>
         </div>
-        <% if reservation.end_date < Date.today %>
+        <% if (reservation.end_date < Date.today) && (reservation.statut == "validated") %>
           <%= render "reviews/new_review", reservation: reservation %>
         <% end %>
        <% end %>
@@ -44,10 +49,12 @@
             </div>
             <p><strong><%= "#{boat.price} € / day" %></strong></p>
           </div>
-          <%= link_to 'edit', edit_boat_path(boat) %>
-          <%= link_to 'delete', boat_path(boat),
-                                method: :delete,
-                                data: { confirm: "Are you sure?" }  %>
+          <div class="d-flex">
+            <i class="fas fa-pencil-alt"></i><%= link_to 'edit', edit_boat_path(boat) %>
+            <i class="far fa-trash-alt"></i><%= link_to 'delete', boat_path(boat),
+                                  method: :delete,
+                                  data: { confirm: "Are you sure?" }  %>
+          </div>
         </div>
         <div class="reservations">
           <h2> <%= boat.name %> </h2>
@@ -60,8 +67,8 @@
                   <%= reservation.begin_date %>
                   <%= reservation.end_date %> <br>
                   <%= "#{reservation.total_price} €" %><br>
-                  <%= link_to 'validate', validate_path(reservation), method: :patch %>
-                  <%= link_to 'deny', deny_path(reservation), method: :patch %>
+                  <i class="far fa-check-circle"></i><%= link_to 'validate', validate_path(reservation), method: :patch %>
+                  <i class="far fa-times-circle"></i><%= link_to 'deny', deny_path(reservation), method: :patch %>
                 </div>
             <% end %>
           <% end %>
