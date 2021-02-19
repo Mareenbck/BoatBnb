@@ -14,7 +14,7 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <div class="marginbody">
+    <div class="marginbody <%= "marginbody-dashboard" if current_page?(dashboard_path) %> ">
 
       <%= yield %>
     </div>
