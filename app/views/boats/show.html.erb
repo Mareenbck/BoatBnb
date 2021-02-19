@@ -20,14 +20,16 @@
         <%= image_tag "boat.png", class: "show-avatar"%>
       <% end %>
       <p><%= @boat.user.first_name%>'s boat</p>
-      <p>
-        <% @average_rating.times do %>
-          <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
-        <% end %>
-        <% (5 - @average_rating).times do %>
-          <i class="fas fa-star" style= 'color : darkgrey'></i>
-        <% end %>
-      </p>
+      <!-- <div class="stars-container"> -->
+        <p class="show-stars">
+          <% @average_rating.times do %>
+            <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
+          <% end %>
+          <% (5 - @average_rating).times do %>
+            <i class="fas fa-star" style= 'color : darkgrey'></i>
+          <% end %>
+        </p>
+      <!-- </div> -->
       <p id="nb-reviews">(<%= @boat.reviews.length%>) reviews</p>
     </div>
     <div class="boat-subinfo">
