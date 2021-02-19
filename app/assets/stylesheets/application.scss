@@ -24,7 +24,6 @@
 body {
   position: relative;
   padding-bottom: 80px;
-  font-family: 'Open Sans', sans-serif;
 }
 
 h1, h2, h3, h4 {
@@ -45,6 +44,7 @@ h1 {
   justify-content: space-between;
   background: white;
   font-family: 'Open Sans', sans-serif;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -53,15 +53,9 @@ h1 {
 
 .navbar-lewagon .navbar-brand img {
   width: 50px;
-
   .nav-margin-top {
   margin-top: 100px;
-  }
-}
-  .nav-margin-top {
-  margin-top: 4%;
-
-  }
+}}
 
 .footer {
   background: white;
@@ -75,12 +69,10 @@ h1 {
   bottom: 0;
   width: 100%;
 }
-
 .footer-links {
   display: flex;
   align-items: center;
 }
-
 .footer-links a {
   color: black;
   opacity: 0.15;
@@ -88,15 +80,12 @@ h1 {
   font-size: 24px;
   padding: 0px 10px;
 }
-
 .footer-links a:hover {
   opacity: 1;
 }
-
 .footer .fa-heart {
   color: #D23333;
 }
-
 .btn-blue {
   background-color:rgb(69, 114, 135);
   color:white;
@@ -117,7 +106,6 @@ h1 {
   background: white;  transition: background 0.3s ease;
   font-weight: bold;
 }
-
 .btn-white:hover {
   background: white;
   color: #4e8197;

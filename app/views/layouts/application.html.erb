@@ -14,7 +14,7 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <div class='<%= 'nav-margin-top' unless controller_name == 'pages' || (controller_name =='boats' && action_name == 'new') %>'>
+    
       <%= yield %>
     </div>
 
