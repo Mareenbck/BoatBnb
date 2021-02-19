@@ -5,7 +5,7 @@
       <%= simple_form_for [@boat, @reservation] do |f| %>
         <%= f.date_field :begin_date, value: Date.today, id: "begin-date"%>
         <%= f.date_field :end_date, value: Date.today + 1.day, id: "end-date"%>
-         <div class="reservation-info">
+         <div class="show-reservation-info">
           <div class="nb-of-days"></div>
           <div class="price-per-days" data-price="<%= @boat.price %>"><strong>Price : <%= @boat.price %> € </strong></div>
           <div class="total-price"></div>
