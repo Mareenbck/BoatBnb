@@ -3,7 +3,7 @@
   <%= simple_form_for [reservation, Review.new], method: :post do |f| %>
     <%= f.input :content %>
     <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
-    <%= f.submit class: "btn btn-primary", value: "Valider" %>
+    <%= f.submit class: "btn btn-blue", value: "Valider" %>
   <% end %>
 </div>
 
