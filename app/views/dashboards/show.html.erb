@@ -65,16 +65,16 @@
             <i class="far fa-trash-alt"></i><%= link_to 'DELETE', boat_path(boat),
                                   method: :delete,
                                   data: { confirm: "Are you sure?" }  %>
-                                  
+
           </div>
         </div>
         <div class="reservations">
           <h2> <%= boat.name %> </h2>
           <div class="boat-status-cart">
-          <%= link_to "PENDING", dashboard_path(statut: "pending")%>
-              <%= link_to "VALIDATED", dashboard_path(statut: "validated")  %>
-              <%= link_to "DENIED", dashboard_path(statut: "denied")  %>
-              </div>
+            <%= link_to "PENDING", dashboard_path(statut: "pending")%>
+            <%= link_to "VALIDATED", dashboard_path(statut: "validated")  %>
+            <%= link_to "DENIED", dashboard_path(statut: "denied")  %>
+          </div>
           <% if boat.reservations.empty? %>
             <h6>There is no reservation yet</h6>
           <% else %>
@@ -89,28 +89,28 @@
                   <p><i class="fas fa-phone"></i> <%= reservation.boat.user.phone %></p>
                   <p> <%= reservation.begin_date %> to <%= reservation.end_date %></p>
                   <div class="id-price">
-                  <strong><%= "#{reservation.total_price} €" %></strong><br>
-                  <div>
-                    <% if reservation.statut == "pending" %>
+                    <strong><%= "#{reservation.total_price} €" %></strong><br>
+                  </div>
+                  <% if reservation.statut == "pending" %>
                     <i class="far fa-check-circle"></i><%= link_to 'validate', validate_path(reservation), method: :patch %>
                     <i class="far fa-times-circle"></i><%= link_to 'deny', deny_path(reservation), method: :patch %>
-                      <% else %>
-              <% if reservation.statut == 'pending' %>
-              <p><i class="far fa-bell pending"></i>PENDING</p>
-              <% elsif reservation.statut == 'validated' %>
-              <p><i class="fas fa-check-square validated"></i>VALIDATED</p>
-              <% else %>
-              <p><i class="fas fa-times denied"></i>DENIED </p>
-              <% end %>
-              </div>
+                  <% else %>
+                    <% if reservation.statut == 'pending' %>
+                      <p><i class="far fa-bell pending"></i>PENDING</p>
+                    <% elsif reservation.statut == 'validated' %>
+                      <p><i class="fas fa-check-square validated"></i>VALIDATED</p>
+                    <% else %>
+                      <p><i class="fas fa-times denied"></i>DENIED </p>
                     <% end %>
-                  </div>
-                </div>
+                  <% end %>
+               </div>
+        </div>
+    </div>
             <% end %>
           <% end %>
         </div>
-  </div>
-  <% end %>
+    </div>
+    <% end %>
   </div>
 
 
