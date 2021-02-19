@@ -12,7 +12,7 @@
     <h5><%= current_user.email %></h5>
     <h5><%= current_user.phone %></h5>
 <br>
-    <h4>Mes resevations</h4>
+    <h4>Mes réservations</h4>
       <% @reservations.each do |reservation| %>
         <div class="reservation-info border-bottom">
           <h4> <%= reservation.boat.name %> </h4>
@@ -23,7 +23,7 @@
           <%= reservation.statut %>
           <%= reservation.boat.user.phone %>
         </div>
-        <% if (reservation.end_date < Date.today) && (reservation.statut == "validated") %>
+        <% if (reservation.end_date < Date.today) && (reservation.statut == "validated") && (reservation.reviews.empty?) %>
           <%= render "reviews/new_review", reservation: reservation %>
         <% end %>
        <% end %>
@@ -67,8 +67,14 @@
                   <%= reservation.begin_date %>
                   <%= reservation.end_date %> <br>
                   <%= "#{reservation.total_price} €" %><br>
-                  <i class="far fa-check-circle"></i><%= link_to 'validate', validate_path(reservation), method: :patch %>
-                  <i class="far fa-times-circle"></i><%= link_to 'deny', deny_path(reservation), method: :patch %>
+                  <div>
+                    <% if reservation.statut == "pending" %>
+                    <i class="far fa-check-circle"></i><%= link_to 'validate', validate_path(reservation), method: :patch %>
+                    <i class="far fa-times-circle"></i><%= link_to 'deny', deny_path(reservation), method: :patch %>
+                      <% else %>
+                    <%= reservation.statut %>
+                    <% end %>
+                  </div>
                 </div>
             <% end %>
           <% end %>
