@@ -11,7 +11,7 @@
 // COLONNE DE DROITE SUR LES BATEAUX
 
 .container-resa {
-  padding-top: 20px;
+  padding-top: 0px;
 }
 .card-boat-dashboard {
   border-radius: 10px 0px 0px 10px;
@@ -32,18 +32,65 @@
   i {
     margin-right: 10px;
   }
-  .d-flex {
+   a {
+    font-weight: bold;
+   }
+}
+  // box-shadow: 0 0 0 5px lightgray;
+
+
+
+.link-bold {
   i {
     color: rgb(69, 114, 135);
   }
   a {
     text-decoration: none;
-    font-weight: bold;
     color: black;
+    &:hover {
+      color: rgb(69, 114, 135);
+    }
   }
 }
-  // box-shadow: 0 0 0 5px lightgray;
+
+.fa-validated {
+  a {
+    color: rgb(69, 114, 135);
+    text-decoration: none;
+  }
+  i {
+    color: rgb(69, 114, 135);
+  }
+  &:hover{
+    i {
+      color: greenyellow;
+    }
+    a {
+      color: black;
+      font-weight: 600;
+    }
+  }
 }
+
+.fa-denied {
+  a {
+    color: rgb(69, 114, 135);
+    text-decoration: none;
+  }
+  i {
+    color: rgb(69, 114, 135);
+  }
+  &:hover{
+    i {
+      color: rgb(136, 84, 84);
+    }
+    a {
+      color: black;
+      font-weight: 600;
+    }
+  }
+}
+
 
 .boat-status-cart {
   background-color: #F4F4F4;
