@@ -4,50 +4,50 @@
   </div> -->
   <br>
 
-  <div class="container-resa-profil">
+<div class="container-resa-profil">
   <div class="left-profil">
     <div class="container-profil">
       <h2> <%= current_user.first_name %></h2>
       <% if current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, class: "avatar-user-dashboard"%>
-       <% else %>
-          <%= image_tag "boat.png" ,class: "avatar-user-dashboard"%>
-          <% end %>
+        <%= cl_image_tag current_user.avatar.key, class: "avatar-user-dashboard"%>
+      <% else %>
+        <%= image_tag "boat.png" ,class: "avatar-user-dashboard"%>
+      <% end %>
       <h5><%= current_user.email %></h5>
       <h5><%= current_user.phone %></h5>
     </div>
     <div class="container-resa-left">
-        <h2>My trips</h2>
-          <% @reservations.each do |reservation| %>
-            <div class="reservation-info border-bottom">
-              <h3> <%= reservation.boat.name %> </h3>
-              <div class="id-price">
-              <p> Trip ID : <%= reservation.id %></p>
-              <strong><%= "#{reservation.total_price} € "  %></strong>
-              </div>
-              <p><%= reservation.begin_date %> <em>to</em> <%= reservation.end_date %></p>
-              <div class="id-price">
-              <% if reservation.statut == 'pending' %>
+      <h2>My trips</h2>
+      <% @reservations.each do |reservation| %>
+        <div class="reservation-info border-bottom">
+          <h3> <%= reservation.boat.name %> </h3>
+          <div class="id-price">
+            <p> Trip ID : <%= reservation.id %></p>
+            <strong><%= "#{reservation.total_price} € "  %></strong>
+          </div>
+          <p><%= reservation.begin_date %> <em>to</em> <%= reservation.end_date %></p>
+          <div class="id-price">
+            <% if reservation.statut == 'pending' %>
               <p><i class="far fa-bell pending"></i>PENDING</p>
-              <% elsif reservation.statut == 'validated' %>
+            <% elsif reservation.statut == 'validated' %>
               <p><i class="fas fa-check-square validated"></i>VALIDATED</p>
-              <% else %>
+            <% else %>
               <p><i class="fas fa-times denied"></i>DENIED </p>
-              <% end %>
-              <p><i class="fas fa-phone"></i> <%= reservation.boat.user.phone %></p>
-              </div>
-            </div>
-            <% if (reservation.end_date < Date.today) && (reservation.statut == "validated") && (reservation.reviews.empty?) %>
-              <%= render "reviews/new_review", reservation: reservation %>
             <% end %>
-          <% end %>
-      </div>
+            <p><i class="fas fa-phone"></i> <%= reservation.boat.user.phone %></p>
+          </div>
+        </div>
+        <% if (reservation.end_date < Date.today) && (reservation.statut == "validated") && (reservation.reviews.empty?) %>
+          <%= render "reviews/new_review", reservation: reservation %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="container-resa">
-  <h1>My Boats</h1>
-  <% @boats.each do |boat| %>
-  <div class="info">
+    <h1>My Boats</h1>
+    <% @boats.each do |boat| %>
+      <div class="info">
         <div class="card-boat-dashboard">
           <div class="card-boat-image-dashboard">
             <% if boat.photos.first %>
@@ -60,16 +60,16 @@
             <div class= "card-boat-main-info">
               <p><i class="fas fa-ship"></i><%= boat.category %></p>
               <p><i class="fas fa-map-marker-alt"></i><%= "#{boat.localisation}" %></p>
-            <p><i class="fas fa-user-alt"></i> <%= boat.capacity %></p>
+              <p><i class="fas fa-user-alt"></i> <%= boat.capacity %></p>
             </div>
             <p><strong><%= "#{boat.price} € / day" %></strong></p>
           </div>
-          <div class="d-flex">
+          <div class="link-bold">
             <i class="fas fa-pencil-alt"></i><%= link_to 'EDIT', edit_boat_path(boat) %>
+            &nbsp; <!-- #inserer deux espaces -->
             <i class="far fa-trash-alt"></i><%= link_to 'DELETE', boat_path(boat),
                                   method: :delete,
                                   data: { confirm: "Are you sure?" }  %>
-
           </div>
         </div>
         <div class="reservations">
@@ -88,38 +88,42 @@
               <% reservations = Reservation.where(user: current_user, statut: "pending", boat: boat) %>
             <% end %>
             <% reservations.each do |reservation| %>
-               <div class="reservation-info border-bottom">
-                  <h4> <%= reservation.user.email %> </h4>
-                  <p><i class="fas fa-phone"></i> <%= reservation.boat.user.phone %></p>
-                  <p> <%= reservation.begin_date %> to <%= reservation.end_date %></p>
-                  <div class="id-price">
-                    <strong><%= "#{reservation.total_price} €" %></strong><br>
+              <div class="reservation-info border-bottom">
+                <h4> <%= reservation.user.email %> </h4>
+                <p><i class="fas fa-phone"></i> <%= reservation.boat.user.phone %></p>
+                <p> <%= reservation.begin_date %> to <%= reservation.end_date %></p>
+                <div class="id-price">
+                  <strong><%= "#{reservation.total_price} €" %></strong><br>
+                </div>
+                <% if reservation.statut == "pending" %>
+                  <div class="d-flex">
+                    <div class="fa-validated">
+                      <i class="far fa-check-circle "></i> <%= link_to 'Validate', validate_path(reservation), method: :patch %>
+                    </div>
+                    &ensp; <!-- #inserer deux espaces -->
+                    <div class="link-bold fa-denied">
+                      <i class="far fa-times-circle "></i> <%= link_to 'Deny', deny_path(reservation), method: :patch %>
+                    </div>
                   </div>
-                  <% if reservation.statut == "pending" %>
-                    <i class="far fa-check-circle"></i><%= link_to 'validate', validate_path(reservation), method: :patch %>
-                    <i class="far fa-times-circle"></i><%= link_to 'deny', deny_path(reservation), method: :patch %>
+                <% else %>
+                  <% if reservation.statut == 'validated' %>
+                    <p><i class="fas fa-check-square validated"></i>VALIDATED</p>
                   <% else %>
-                    <% if reservation.statut == 'pending' %>
-                      <p><i class="far fa-bell pending"></i>PENDING</p>
-                    <% elsif reservation.statut == 'validated' %>
-                      <p><i class="fas fa-check-square validated"></i>VALIDATED</p>
-                    <% else %>
-                      <p><i class="fas fa-times denied"></i>DENIED </p>
-                    <% end %>
+                    <p><i class="fas fa-times denied"></i>DENIED </p>
                   <% end %>
-               </div>
-        </div>
-    </div>
+                <% end %>
+              </div>
             <% end %>
           <% end %>
         </div>
-    </div>
+      </div>
     <% end %>
   </div>
+</div>
 
 
 
-  </div>
+
 
 
 
